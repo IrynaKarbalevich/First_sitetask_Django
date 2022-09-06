@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    {{ title }}
+{%endblock%}
+
+{% block content %}
+<h1> Задача </h1>
+   <form method="post">
+       {% csrf_token %}
+       {% for f in form %}
+       <p> <label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }} </p>
+       {%endfor%}
+       <button type="submit" class="btn btn-success"> Добавить </button>
+   </form>
+{% endblock %}
